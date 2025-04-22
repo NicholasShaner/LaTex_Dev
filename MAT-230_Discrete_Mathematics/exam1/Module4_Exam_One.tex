@@ -1,0 +1,424 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+%\documentclass{amsart}
+%\usepackage{txfonts}
+%\documentclass[12pt,oneside]{article}
+\documentclass{amsart}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{setspace}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{Exercise}
+\newtheorem{ex}[thm]{Exercise}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\theoremstyle{rule}
+\newtheorem{rul}[thm]{Rule}
+
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\bB(X)}
+\newcommand{\A}{\mathcal{A}}
+% ----------------------------------------------------------------
+
+% define some simple, commonly-used commands
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dsum}{\displaystyle\sum}
+\newcommand{\dint}{\displaystyle\int}
+
+\newcommand{\pdr}[2]{\dfrac{\partial{#1}}{\partial{#2}}}
+\newcommand{\pdrr}[2]{\dfrac{\partial^2{#1}}{\partial{#2}^2}}
+\newcommand{\pdrt}[3]{\dfrac{\partial^2{#1}}{\partial{#2}{\partial{#3}}}}
+\newcommand{\dr}[2]{\dfrac{d{#1}}{d{#2}}}
+\newcommand{\aver}[1]{\langle {#1} \rangle}
+\newcommand{\Baver}[1]{\Big\langle {#1} \Big\rangle}
+
+\newcommand{\bzero}{\mathbf 0}
+\newcommand{\bGamma}{\mbox{\boldmath{$\Gamma$}}}
+\newcommand{\btheta}{\boldsymbol \theta}
+\newcommand{\bchi}{\mbox{\boldmath{$\chi$}}}
+\newcommand{\bnu}{\boldsymbol \nu}
+\newcommand{\bmu}{\boldsymbol \mu}
+\newcommand{\brho}{\mbox{\boldmath{$\rho$}}}
+\newcommand{\bxi}{\boldsymbol \xi}
+\newcommand{\bnabla}{\boldsymbol \nabla}
+\newcommand{\bOm}{\boldsymbol \Omega}
+\newcommand{\blambda}{\boldsymbol \lambda}
+\newcommand{\bsigma}{\boldsymbol \sigma}
+
+\newcommand{\bbR}{\mathbb R}
+\newcommand{\bbC}{\mathbb C}
+\newcommand{\bbQ}{\mathbb Q}
+\newcommand{\bbN}{\mathbb N}
+\newcommand{\bbZ}{\mathbb Z}
+
+\newcommand{\ba}{\mathbf a} \newcommand{\bb}{\mathbf b}
+\newcommand{\bc}{\mathbf c} \newcommand{\bd}{\mathbf d}
+\newcommand{\be}{\mathbf e} \newcommand{\bff}{\mathbf f}
+\newcommand{\bg}{\mathbf g} \newcommand{\bh}{\mathbf h}
+\newcommand{\bi}{\mathbf i} \newcommand{\bj}{\mathbf j}
+\newcommand{\bk}{\mathbf k} \newcommand{\bl}{\mathbf l}
+\newcommand{\bm}{\mathbf m} \newcommand{\bn}{\mathbf n}
+\newcommand{\bo}{\mathbf o} \newcommand{\bp}{\mathbf p}
+\newcommand{\bq}{\mathbf q} \newcommand{\br}{\mathbf r}
+\newcommand{\bs}{\mathbf s} \newcommand{\bt}{\mathbf t}
+\newcommand{\bu}{\mathbf u} \newcommand{\bv}{\mathbf v}
+\newcommand{\bw}{\mathbf w} \newcommand{\bx}{\mathbf x}
+\newcommand{\by}{\mathbf y} \newcommand{\bz}{\mathbf z}
+\newcommand{\bA}{\mathbf A} \newcommand{\bB}{\mathbf B}
+\newcommand{\bC}{\mathbf C} \newcommand{\bD}{\mathbf D}
+\newcommand{\bE}{\mathbf E} \newcommand{\bF}{\mathbf F}
+\newcommand{\bG}{\mathbf G} \newcommand{\bH}{\mathbf H}
+\newcommand{\bI}{\mathbf I} \newcommand{\bJ}{\mathbf J}
+\newcommand{\bK}{\mathbf K} \newcommand{\bL}{\mathbf L}
+\newcommand{\bM}{\mathbf M} \newcommand{\bN}{\mathbf N}
+\newcommand{\bO}{\mathbf O} \newcommand{\bP}{\mathbf P}
+\newcommand{\bQ}{\mathbf Q} \newcommand{\bR}{\mathbf R}
+\newcommand{\bS}{\mathbf S} \newcommand{\bT}{\mathbf T}
+\newcommand{\bU}{\mathbf U} \newcommand{\bV}{\mathbf V}
+\newcommand{\bW}{\mathbf W} \newcommand{\bX}{\mathbf X}
+\newcommand{\bY}{\mathbf Y} \newcommand{\bZ}{\mathbf Z}
+
+\newcommand{\cA}{\mathcal A} \newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C} \newcommand{\cD}{\mathcal D}
+\newcommand{\cE}{\mathcal E} \newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G} \newcommand{\cH}{\mathcal H}
+\newcommand{\cI}{\mathcal I} \newcommand{\cJ}{\mathcal J}
+\newcommand{\cK}{\mathcal K} \newcommand{\cL}{\mathcal L}
+\newcommand{\cM}{\mathcal M} \newcommand{\cN}{\mathcal N}
+\newcommand{\cO}{\mathcal O} \newcommand{\cP}{\mathcal P}
+\newcommand{\cQ}{\mathcal Q} \newcommand{\cR}{\mathcal R}
+\newcommand{\cS}{\mathcal S} \newcommand{\cT}{\mathcal T}
+\newcommand{\cU}{\mathcal U} \newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W} \newcommand{\cX}{\mathcal X}
+\newcommand{\cY}{\mathcal Y} \newcommand{\cZ}{\mathcal Z}
+
+
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+%\documentclass[12pt,oneside]{article}
+
+\usepackage{pdfpages}
+%--------------
+\usepackage{enumitem}
+%-------------Tasks
+%\usepackage{tasks} %\begin{tasks} \item \end{tasks}
+%\bfseries Horizontal list: a = alphabetical \normalfont
+%\begin{tasks}[counter-format = {tsk[a].},label-offset = {0.6em},label-format = {\bfseries}](6)
+%\task One
+%\task Two
+%\task Three
+%\task Four
+%\task Five
+%\task Six
+%\task Seven
+%\task Eight
+%\task Nine
+%\task Ten
+%\end{tasks}
+%\vglue5mm
+%\bfseries Horizontal list: A = Alphabetical \normalfont
+%\begin{tasks}[counter-format = {(tsk[A])},label-offset = {0.8em},label-format = {\bfseries}](3)
+%\task One
+%\task Two
+%\task Three
+%\task Four
+%\task Five
+%\task Six
+%\task Seven
+%\task Eight
+%\task Nine
+%\task Ten
+%\end{tasks}
+
+
+
+%___________________________
+\usepackage[margin=2.5cm]{geometry}
+
+\geometry{hmargin=3cm,vmargin=2cm}
+\usepackage{tikz}
+\def\width{18}
+\def\hauteur{13}
+
+
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%Start%%%%%%%%%%%%%Start%%%%%%%%%%%Start%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%%%%%%%%%%Start%%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{}
+\chead{\includegraphics[scale=.1]{snhu_logo.png}}
+\begin{document}
+
+\title{\sf MAT 230 Exam One}%
+
+
+\begin{center}\doublespacing
+\includegraphics[scale=.1]{snhu_logo.png}
+\end{center}
+
+%\thm{bbjh}
+\maketitle
+This document is proprietary to Southern New Hampshire University. It and the problems within may not be posted on any non-SNHU website.\\\\\\\\
+\begin{center}\doublespacing
+%Enter your name below this line:
+\textbf{4-3 Exam One}\\
+Nicholas Shaner\\
+SNHU\\
+MAT-230-15848-M01 Discrete Mathematics\\
+Prof. Kirsten Messer\\
+Nov. 24, 2024
+\end{center}
+
+\begin{center}
+\rule{\textwidth}{0.4pt}
+\end{center}
+\newpage
+\section*{}
+\section*{}
+Directions: Type your solutions into this document and be sure to show all steps for arriving at your solution. Just giving a final number may not receive full credit.
+\\
+\section*{Problem 1}
+\begin{enumerate}[label=(\alph*)]
+\item The domain for all variables in the expressions below is the set of real numbers. {\bf Determine whether each statement is true or false.}
+\begin{enumerate}[label=(\roman*)]
+  \item $\forall\, x\; \exists \,y\;(x\,+\,y\;\geq \;0)$
+\\\\
+  %Enter your answer below this comment line.
+  - This statement is \textbf{TRUE}. 
+  - As written, "For every value $x$ there exists a value $y$, where $x$ and $y$ are real numbers, 
+    in which $x+y$ is greater than or equal to $0$".\\
+  - With this for every value of $x$ we can choose a value for $y$ to satisfy the statement including $y = -x$ that would evaluate 
+    to $0$, which is still within the domain of all real numbers.\\
+\\\\
+  \item $\exists \, x\; \forall \,y\;(x\,\cdot\,y\;>\; 0)$
+   \\\\
+  %Enter your answer below this comment line.
+  - This statement is \textbf{FALSE}. 
+  - As the statement is written, "There exists a value $x$ where for every value of $y$, in which 
+    $x$ and $y$ are real numbers, that satisfy the expression $x*y$ is greater than zero".\\
+  - However, when $y = 0$, the statement evaluates to $x*0 = 0$ which does not satisfy the original statement in which the statement 
+    range is restricted to "greater than zero".\\
+\\\\
+\end{enumerate}
+
+\item {\bf Translate each of the following English statements into logical expressions.}
+\begin{enumerate}[label=(\roman*)]
+  \item There are two numbers whose ratio is less than $1$.
+   \\\\
+  %Enter your answer below this comment line.
+  - Let $x$ and $y$ be in the domain $\mathbb{R}$\\
+  - The logical statement is expressed as $\exists x \exists y(\frac{x}{y} < 1)$\\
+\\\\
+  \item The reciprocal of every positive number is also positive.
+   \\\\
+  %Enter your answer below this comment line.
+  - The reciprocal of any number $x$ is expressed as $\frac{1}{x}$\\
+  - Therefore any positive value of $x$ means that its reciprocal is also positive.\\
+  - The statement can be expressed as: $\forall x(x > 0\, \rightarrow\, \frac{1}{x} > 0$)\\
+\\\\
+  \end{enumerate}
+  \end{enumerate}
+  \newpage
+  \section*{}
+  \section*{}
+  \section*{Problem 2}
+  Prove the following using the specified technique:
+  \begin{enumerate}[label=(\alph*)]
+    \item Let $x$ and $y$ be two real numbers such that $x + y$ is rational. Prove by contrapositive that if $x$ is irrational, then $x - y$ is irrational.
+          \\\\
+  %Enter your answer below this comment line.
+  \textbf{Proof:}\\
+  Assume $(x-y)$ is rational, to prove that $x$ is rational.\\
+  - Since $(x-y)$ and $(x+y)$ are both rational, then the closure property can be used to evaluate that $(x-y)+(x+y)$ is also rational\\
+  - So, $(x-y)+(x+y) = 2x$ is rational\\
+  - Using the same closure property, $(2x)/2 = x$ is also rational\\
+  - Therefore, using proof by contrapositive it is proven that assuming $(x-y)$ is rational, then $x$ is rational, meaning that if $x$ is irrational 
+    then $(x-y)$ must be irrational.\\  
+\\\\
+    \item Prove by contradiction that for any positive two real numbers, $x$ and $y$,
+         if $x\cdot y\, \leq \,50$, then either $x < 8$ or $y < 8$.
+          \\\\
+  %Enter your answer below this comment line.
+  \textbf{Proof:}\\
+  Assume: \\
+  \indent $x*y \leq 50$\\
+  \indent $x \geq 8$\\
+  \indent $y \geq 8$\\
+  - Muliplying $x$ and $y$ evaluates to $x*y \geq 64$\\
+  - Comparing to original assumtion shows $64 \leq x*y \leq 50$\\
+  - Therefore, since the evaluation is irrational, it proves a contradiction in the results and it can be concluded that either $x < 8$ or $x < 8$\\
+\\\\
+  \end{enumerate}
+  \newpage
+  \section*{}
+  \section*{}
+  \section*{Problem 3}
+  Let $n\, \geq \, 1$, $x$ be a real number, and $x\, \geq\,-1$. {\bf Prove the following statement using mathematical induction.}
+  \[(1\,+\,x)^n\;\geq\;1\,+\,nx\]
+\\\\
+  %Enter your answer below this comment line.
+  - Assess the base case of $P(n)$ where $n = 1$\\
+  \indent $P(1): (1+x)^1 \geq 1 + 1x$\; =\; $x+1 \geq 1 + x$\\
+  \indent Therefore the base case evaluates True.\\
+  - Let k represent a real number where $n=k$\\
+  - Evaluating the equation for $P(k+1): (1+x)^{k+1} \geq 1 +(k+1)x$\\
+  \indent Expand, $(1+x)^{k+1} = (1+x)^k * (1+x)$\\
+  \indent $(1+x)^k * (1+x) \geq (1+kx)*(1+k)$\\
+  - Expanding the right side of the equation:\\
+  \indent $(1+kx)(1+k) = 1 + x + kx + kx^2$\\
+  - Since $x \geq -1$ then $kx^2 \geq 0$, which means $1 + x + kx + kx^2 \geq 1 + x + kx$\\
+  - Factoring, $1 + (k+1)x + kx^2 \geq 1 + (k+1)x$\\
+  - Therefore, $P(k+1)$ evaluates True proving the original statement that for all $n \geq 1$ and $x \geq -1$, $(1+x)^n \geq 1 ++ nx$.\\
+\\\\
+\newpage
+  \section*{}
+  \section*{}
+  \section*{Problem 4}
+  {\bf Solve the following problems:}
+  \begin{enumerate}[label=(\alph*)]
+    \item How many ways can a store manager arrange a group of 1 team leader and 3 team workers from his 25 employees?
+\\\\
+  %Enter your answer below this comment line.
+  - Let variable $n$ be the number of elements in the set of employees $P$, such  that ($n \in P$) and $n = 25$.\\
+  - Let $r$ be the number of employees in a subset of $P$, and $r = 4$. (1 team leader, and 3 team workers).\\
+  - Using the equation of r-purmutation we can calculate $P(n, r) = \frac{n!}{(n-r)!}$.\\
+  $$P(25,4) = \frac{25!}{(25-4)!} \,=\, \frac{25!}{21!} \,=\, 25*24*23*22 \,=\, \underline{303,600}$$\\
+  - Therefore there are 303,600 possible combinations of selections that can be made to select 4 employees from a pool of 25 candidates.\\ 
+\\\\
+    \item A state’s license plate has 7 characters. Each character can be a capital letter $(A-Z)$, or a non-zero digit $(1-9)$. How many license plates start with 3 capital letters and end with 4 digits with no letter or digit repeated?
+\\\\
+  %Enter your answer below this comment line.
+  - Let $l$ be the number of available capital letters in the set (A-Z), where as $l = 26$.\\
+  - Let $t$ represent the size of the subset of letters being requested\\
+  - Let $n$ be the number of available digits in the set (1-9), where as $n = 9$.\\
+  - Let $d$ represent the size of the subset of digits being requested.\\
+  - Using the same method of permutation as in the previous question it can be evaluated:\\
+  The probability of the first 3 characters being letters, and last 4 characters being digits is\\
+  \\\\
+  $$\frac{l!}{(l-t)!} \,*\, \frac{n!}{(n-d)!}\;=\; \frac{26!}{23!} \,*\, \frac{9!}{5!}\;=\; 26*25*24*9*8*7*6\;=\; \bf{14174400}$$\\
+  \\\\
+  - Therefore there are 14,174,400 possible combinations.
+\\\\
+    \item How many binary strings of length 5 have at least 2 adjacent bits that are the same (``$00$'' or ``$11$'') somewhere in the string?
+\\\\
+  %Enter your answer below this comment line.
+  - As stated, the bit string has a length of 5 digits and each digit only has a potential outcome of $0$ or $1$. Therefore, the total possible number of outcomes is:\\
+  $2*2*2*2*2 \equiv 2^5$ which evaluates to $32$.\\
+  - In this situation, using counting by complements is more effective. That is, determine how many sets \textbf{DON'T} have at least one pair of same values adjacent to eachother.\\
+  - Using typical logical thinking the only sets to not have any adjacent values that are the same are: $\{(0\,1\,0\,1\,0),(1\,0\,1\,0\,1)\}$\\
+  - Using the definition of counting by complements: $|P|=|S|+|\overline{P}|$, where $|P|$ is the total number of potential sets, $|S|$ is the number of 
+  sets that meet the criteria of having at least 2 adjucent values, and $|\overline{P}|$ is the complement to $|S|$ meaning the number of sets that do not have 
+  and matching adjacent character.
+  \\\\
+  \vspace*{0.2in}
+  \\\\
+  - Therefore, by substituting the known information: $32\,=\,|S| + 2 \rightarrow 32-2=|S| \rightarrow S= (30)$.\\
+  There are \textbf{30} possible outcomes in which at least one pair out adjacent values are the same.\\ 
+\\\\
+  \end{enumerate}
+\newpage
+  \section*{}
+  \section*{}
+  \section*{Problem 5}
+  A class with n kids lines up for recess. The order in which the kids line up is random with each ordering being equally likely. There are two kids in the class named Betty and Mary. The use of the word ``$or$'' in the description of the events, should be interpreted as the inclusive or. That is ``$A \;or\; B$'' means that $A$ is true, $B$ is true, or both $A$ and $B$ are true.\\\\
+  What is the probability that Betty is first in line or Mary is last in line as a function of $n$? Simplify your final expression as much as possible and include an explanation of how you calculated this probability.
+\\\\
+  %Enter your answer below this comment line.
+  - Let $B$ represent Betty being first in line.\\
+  - Let $M$ represent Mary being last in line.\\
+  - The sample space of potential orders of students in line is $n!$.\\
+  - When Betty is in first place, there are $(n-1)!$ possible line ups.\\
+  - So, the probability of Betty being in first place can be evaluated as: $P(B)=\frac{(n-1)!}{n!}$.\\
+  - Similarly, when Mary is in last place there are $(n-1)!$ possible of line ups.\\
+  - With this, the probability of MAry being in last place can be evaluated as: $P(M)=\frac{(n-1)!}{n!}$.\\
+  - If Betty is first in line and Mary is last in line, the possible number of line ups can be represented by: $(n-2)!$.\\
+  - The probability of Betty being first and Mary being last is represented as: $P(A \land B) = \frac{(n-2)!}{n!}$.\\
+  - To evaluate the probability of P(A) or P(B), the principle on inclusion-exclusion can be used.\\
+  $$P(A \lor B) = P(A) + P(B) - P(A \land B)$$\\
+  $$P(A \lor B) = \frac{(n-1)!}{n!} + \frac{(n-1)!}{n!} - \frac{(n-2)!}{n!}$$\\
+  \begin{center}
+  Simplify:
+  \end{center}
+  $$\frac{(n-1)!}{n!} = \frac{(n-1)!}{n*(n-1)!} = \frac{1}{n}$$\\
+  \begin{center}
+  Simplify:
+  \end{center}
+  $$\frac{(n-2)!}{n!} = \frac{(n-2)!}{n*(n-1)*(n-2)!} = \frac{1}{n*(n-1)}$$\\
+  \begin{center}
+  So:
+  \end{center}
+  $$P(A \lor B) = \frac{(n-1)!}{n!} + \frac{(n-1)!}{n!} - \frac{(n-2)!}{n!} = \frac{1}{n} + \frac{1}{n} - \frac{1}{n*(n-1)}$$\\
+  \begin{center}
+  Create common denominator by multiplying by $\frac{(n-1)}{(n-1)}$:\\
+  Therefore:
+  \end{center}
+  $$\frac{1}{n} + \frac{1}{n} - \frac{1}{n*(n-1)} = \frac{(n-1)+(n-1)-1}{n*(n-1)} = \frac{2n-3}{n*(n-1)}$$\\
+  \\\\
+  - The probability pf Betty being first in line and Mary being last in line is: $\frac{2n-3}{n*(n-1)}$
+  \newpage
+  \section*{}
+  \section*{}
+  \section*{Problem 6}
+The general manager, marketing director, and 3 other employees of Company $A$ are hosting a visit by the vice president and 2 other employees of Company $B$. The eight people line up in a random order to take a photo. Every way of lining up the people is equally likely.
+\begin{enumerate}[label=(\alph*)]
+  \item What is the probability that the general manager is next to the vice president?
+\\\\
+  %Enter your answer below this comment line.
+  - The total number of possible outcomes of elements can be represented as $8!$.\\
+  - In determining probability, the general manager and vice president can be handled as a single element since they will be evaluated as a pair.
+  This means that the pair can be organized is 2 possible positions \{(GM, VP), (VP,GM)\}.\\
+  - With this, the total number of potential outcomes of elements can be represented as $2 * 7!$.\\
+  - Therefore, the probability that the General Manager and Vice President are next to eachother can be evaluated as:
+  $$\frac{2 * 7!}{8!} = 2 * \left(\frac{7!}{8!}\right) = 2 * \left(\frac{7\,*\,6\,*\,5\,*\,4\,*\,3\,*\,2\,*\,1}{8\,*\,7\,*\,6\,*\,5\,*\,4\,*\,3\,*\,2\,*\,1}\right) = 2 * \left(\frac{1}{8}\right) = \frac{2}{8} = \frac{1}{4}$$
+\\\\
+  \item What is the probability that the marketing director is in the leftmost position?
+\\\\
+  %Enter your answer below this comment line.
+  - Let variable $n$ represent the number of positions in set of positions, where $n=8$\\
+  - The total number of positions can be represented by: $n!$, so $8!$.\\
+  - If the marketing director is in the leftmost position, the remaining positions can be represented as $(n-1)! = 7!$\\
+  - The probability can be represented as $\frac{7!}{8!} = \frac{7\,*\,6\,*\,5\,*\,4\,*\,3\,*\,2\,*\,1}{8\,*\,7\,*\,6\,*\,5\,*\,4\,*\,3\,*\,2\,*\,1} = \frac{1}{8}$\\
+  - Therefore, the probability that the marketing director is in the leftmost position is $\frac{1}{8}$\\
+  \item Determine whether the two events are independent. Prove your answer by showing that one of the conditions for independence is either true or false.
+ \\\\
+  %Enter your answer below this comment line.
+  - Let $A$ represent the general manager being either first or last in line.\\
+  - Let $B$ represent the vice presedent being at the opposite end of the line as the general manager.\\
+  - The probability ($P$) of $A$ happening is: $P(A) = \frac{number\, of\, favorable\, positions}{total\, number\, of\, available\, positions} = \frac{2}{8} = \frac{1}{4}$\\
+  \\\\
+  - The probability ($P$) of $B$ happening is: $P(B) = \frac{number\, of\, favorable\, positions}{total\, number\, of\, available\, positions} = \frac{2}{8} = \frac{1}{4}$
+  \\\\
+  - If statement $A$ is True, then there is only one favorable position for $B$ to be True. So, $P(a \land B) = \frac{1}{8}$\\
+  - Using the conditional properties of Independent variables:\\
+  $$P(A \land B) = P(A)*P(B)$$
+  $$\frac{1}{8} = \frac{1}{4} * \frac{1}{4}$$
+  $$\frac{1}{8} \neq \frac{1}{16}$$\\
+  - Therefore, A and B and not independent and the position of either the general manager or vice presedent effects the other.\\
+\\\\
+\end{enumerate}
+\end{document}
+
